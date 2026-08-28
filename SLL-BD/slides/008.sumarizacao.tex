@@ -1,0 +1,14 @@
+\begin{frame}{Sumarização do método}
+    O método emprega uma restrição de sparsity relativa, 
+    em que o threshold ($\mu$) de sparsity muda durante o treinamento
+    com base em $r_{epoch} = \frac{\text{época atual}}{\text{total de épocas}}$
+    
+    \begin{enumerate}
+        \item Rede recebe $Y_{obs}$
+        \item Rede produz $R_{pred}$ e $\theta_{pred}$
+        \item Com $\theta_{pred}$, calcula-se $w_{pred}$
+        \item Aplica-se sparsity $R_{pred} \rightarrow \bar{R}_{pred}$
+        \item Faz-se a operação física $\bar{Y}_{pred} = w_{pred} * \bar{R}_{pred}$
+        \item A perda é calculada como $\mathcal{L} = || Y_{obs} - \bar{Y}_{pred} ||_2^2$
+    \end{enumerate}
+\end{frame}

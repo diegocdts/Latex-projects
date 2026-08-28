@@ -1,0 +1,21 @@
+\subsection{Etapa 2}
+\begin{frame}{Etapa 2}
+    O método utiliza uma Residual Neural Network para prever a refletividade:
+    \begin{equation}
+        R_{pred} = NN_R (Y_{obs};\phi_R)
+    \end{equation}
+    onde \(\phi_R\) são os parâmetros da rede.
+
+    A arquitetura possui:
+    \begin{itemize}
+        \item residual blocks;
+        \item convoluções;
+        \item LeakyReLU;
+        \item long skip connections.
+    \end{itemize}
+    Para o primeiro bloco, o kernel é $29\times29\times29$ no caso 3D.
+
+Os demais usam $3\times3\times3$, e a última camada utiliza $1\times1\times1$
+
+Para o caso 2D, eles simplesmente substituem as convoluções 3D por convoluções 2D.
+\end{frame}

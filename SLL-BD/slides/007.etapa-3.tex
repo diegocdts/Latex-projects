@@ -1,0 +1,17 @@
+\subsection{Etapa 3}
+\begin{frame}{Etapa 3}
+    A terceira estapa estima a fase $\theta$
+    \begin{equation}
+        \theta_{pred} = NN_{\theta} (Y_{obs};\phi_{\theta})
+    \end{equation}
+    A arquitetura possui:
+    \begin{itemize}
+        \item 4 camadas convolucionais;
+        \item 2 fully connected layers.
+    \end{itemize}
+    A primeira convolução usa kernel \(29\times1\) e stride 14.
+
+    As seguintes usam \(4\times1\) e stride 2.
+
+    Depois ocorre flattening e duas camadas fully connected, culminando em um único valor de fase.
+\end{frame}

@@ -1,0 +1,74 @@
+\documentclass[aspectratio=169]{beamer}
+
+% --------------------------------------------------
+% PACOTES
+% --------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\usepackage{lmodern}
+% --------------------------------------------------
+% TEMA
+% --------------------------------------------------
+
+\usetheme{metropolis}
+
+\setbeamertemplate{footline}{}
+
+% --------------------------------------------------
+% INFORMAÇÕES DA APRESENTAÇÃO
+% --------------------------------------------------
+
+\title{Seismic Blind Deconvolution Based on Self-Supervised \\Machine Learning (SSL-BD)}
+\subtitle{Applied Sciences, 2024 - mdpi.com}
+
+\author{Xia Yin, Wenhao Xu, Zhifang Yang, Bangyu Wu}
+
+\institute{
+    Métodos Avançados de Inteligência Artificial para Processamento de Dados Sísmicos \\
+    COPPE - UFRJ
+}
+
+% --------------------------------------------------
+% DOCUMENTO
+% --------------------------------------------------
+
+\begin{document}
+
+% --------------------------------------------------
+% SLIDE DE TÍTULO
+% --------------------------------------------------
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% --------------------------------------------------
+% SUMÁRIO
+% --------------------------------------------------
+
+\begin{frame}{Sumário}
+    \tableofcontents
+\end{frame}
+
+% --------------------------------------------------
+% CONTEÚDO
+% --------------------------------------------------
+
+\include{slides/001.problema}
+\include{slides/002.dificuldade}
+\include{slides/003.literatura}
+\include{slides/004.arquitetura}
+\include{slides/005.etapa-1}
+\include{slides/006.etapa-2}
+\include{slides/007.etapa-3}
+\include{slides/008.sumarizacao}
+
+\end{document}

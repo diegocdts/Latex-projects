@@ -1,0 +1,25 @@
+\subsection{Etapa 1}
+\begin{frame}{Etapa 1}
+    O método não começa a rede com uma wavelet completamente aleatória.
+
+    Ele tenta obter uma estimativa inicial da wavelet a partir do próprio dado.
+    
+    Passos:
+    \begin{enumerate}
+        \item Cálculo da média dos traces $\bar{y} = \frac{1}{N_{traces}} \sum_{i}y_i$
+        \item Cálculo da $FFT(\bar{y})$ e espectro de amplitude $|FFT(\bar{y})|$
+        \item Suavização do espectro de amplitude com um polinômio cúbico local de 7 pontos
+        \item Aplicação da IFFT ao espectro suavizado
+    \end{enumerate}
+
+    A wavelet inicial ($w_0$) é calculada como $IFFT(smooth(|FFT(\bar{y})|))$
+
+    %$w_0$ é uma estimativa de wavelet de fase zero que fornece essencialmente 
+    %a informação de amplitude da wavelet. A rede neural aprende principalmente 
+    %a fase da wavelet ($\theta$).
+
+    O método usa a transformada de Hilbert para girar $w_0$ no domínio de fase por $\theta$
+    \begin{equation}
+        w_{pred} = Re[(w_0 + j Hilbert(w_0)) e^{-j\theta_{pred}}]
+    \end{equation}
+\end{frame}
