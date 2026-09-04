@@ -1,21 +1,22 @@
 \subsection{Etapa 2}
 \begin{frame}{Etapa 2}
-    O método utiliza uma Residual Neural Network para prever a refletividade:
+    A próxima estapa estima a fase $\theta$
     \begin{equation}
-        R_{pred} = NN_R (Y_{obs};\phi_R)
+        \theta_{pred} = NN_{\theta} (Y_{obs};\phi_{\theta})
     \end{equation}
-    onde \(\phi_R\) são os parâmetros da rede.
-
     A arquitetura possui:
     \begin{itemize}
-        \item residual blocks;
-        \item convoluções;
-        \item LeakyReLU;
-        \item long skip connections.
+        \item 4 camadas convolucionais;
+        \item 2 fully connected layers.
     \end{itemize}
-    Para o primeiro bloco, o kernel é $29\times29\times29$ no caso 3D.
+    A primeira convolução usa kernel \(29\times1\) e stride 14.
 
-Os demais usam $3\times3\times3$, e a última camada utiliza $1\times1\times1$
+    As seguintes usam \(4\times1\) e stride 2.
 
-Para o caso 2D, eles simplesmente substituem as convoluções 3D por convoluções 2D.
+    Depois ocorre flattening e duas camadas fully connected, resultando em um único valor de fase.
+
+    O método usa a transformada de Hilbert para girar $w_0$ no domínio de fase por $\theta$
+    \begin{equation}
+        w_{pred} = Re[(w_0 + j Hilbert(w_0)) e^{-j\theta_{pred}}]
+    \end{equation}
 \end{frame}

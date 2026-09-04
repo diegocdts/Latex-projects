@@ -1,17 +1,21 @@
 \subsection{Etapa 3}
 \begin{frame}{Etapa 3}
-    A terceira estapa estima a fase $\theta$
+    Por último, método utiliza uma Residual Neural Network para prever a refletividade:
     \begin{equation}
-        \theta_{pred} = NN_{\theta} (Y_{obs};\phi_{\theta})
+        R_{pred} = NN_R (Y_{obs};\phi_R)
     \end{equation}
+    onde \(\phi_R\) são os parâmetros da rede.
+
     A arquitetura possui:
     \begin{itemize}
-        \item 4 camadas convolucionais;
-        \item 2 fully connected layers.
+        \item residual blocks;
+        \item convoluções;
+        \item LeakyReLU;
+        \item long skip connections.
     \end{itemize}
-    A primeira convolução usa kernel \(29\times1\) e stride 14.
+    Para o primeiro bloco, o kernel é $29\times29\times29$ no caso 3D.
 
-    As seguintes usam \(4\times1\) e stride 2.
+Os demais usam $3\times3\times3$, e a última camada utiliza $1\times1\times1$
 
-    Depois ocorre flattening e duas camadas fully connected, culminando em um único valor de fase.
+Para o caso 2D, eles simplesmente substituem as convoluções 3D por convoluções 2D.
 \end{frame}

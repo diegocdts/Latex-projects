@@ -1,0 +1,22 @@
+\section{Experimentos}
+
+\begin{frame}{Experimentos}
+
+    Dados:
+    \begin{itemize}
+        \item Input: IN, Target: RFLT
+        \item Input: IMG
+    \end{itemize}
+
+    Paradigma:
+    \begin{itemize}
+        \item Self-Supervised ($\mathcal{L} = || Y_{obs} - \bar{Y}_{pred} ||_2^2$)
+        \item Supervised ($\mathcal{L} = || R - \bar{R}_{pred} ||_2^2$)
+    \end{itemize}
+
+    Feature maps da RNN
+    \begin{itemize}
+        \item $64 \rightarrow 128 \rightarrow 256 \rightarrow 512 \rightarrow 1024 \rightarrow 256 \rightarrow 512 \rightarrow 128 \rightarrow 64$
+    \end{itemize}
+    
+\end{frame}
